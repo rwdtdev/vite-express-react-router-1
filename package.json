@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "cross-env NODE_ENV=development node ./src/server/server.js",
+    "start": "cross-env NODE_ENV=production node ./src/server/server.js",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -12,6 +13,7 @@
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
     "@types/sort-by": "^1.2.2",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "localforage": "^1.10.0",
     "match-sorter": "^8.0.0",
@@ -26,6 +28,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
+    "cross-env": "^7.0.3",
     "eslint": "^9.13.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
