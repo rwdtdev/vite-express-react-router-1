@@ -16,7 +16,7 @@ import {
   getContacts,
   updContact,
   updContactFavorite,
-} from "./actions/createContact.ts";
+} from "./fetchers/contacts.ts";
 import EditContact from "./routes/root/contacts/[id]/edit/EditContact.tsx";
 import Index from "./routes/root/Index.tsx";
 
