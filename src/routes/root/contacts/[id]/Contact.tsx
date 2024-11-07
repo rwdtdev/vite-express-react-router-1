@@ -1,5 +1,5 @@
 import { Form, Params, useFetcher, useLoaderData } from "react-router-dom";
-import { getContact, updateContact } from "../contacts";
+import { getContact, updateContact } from "../../../../contacts";
 
 export type Contact = {
   id: string;

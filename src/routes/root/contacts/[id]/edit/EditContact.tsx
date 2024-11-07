@@ -5,8 +5,8 @@ import {
   useLoaderData,
   useNavigate,
 } from "react-router-dom";
-import { Contact } from "./contact";
-import { updateContact } from "../contacts";
+import { updateContact } from "../../../../../contacts";
+import { Contact } from "../Contact";
 
 export async function action({
   request,

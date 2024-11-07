@@ -1,9 +1,9 @@
-import express from "express";
+import express, { Express } from "express";
 import ViteExpress from "vite-express";
 import "dotenv/config";
 import { prisma } from "../prismaClient";
 
-const app = express();
+const app: Express = express();
 app.use(express.json());
 
 if (isTypeNodeEnvMode(process.env.NODE_ENV))

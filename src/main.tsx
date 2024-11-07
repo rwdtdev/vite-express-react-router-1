@@ -1,12 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import ErrorPage from "./ErrorPage.tsx";
-import Contact from "./routes/contact.tsx";
-import Root from "./routes/root";
-import EditContact from "./routes/edit.tsx";
-import Index from "./routes/index.tsx";
+import Contact from "./routes/root/contacts/[id]/Contact.tsx";
+import Root from "./routes/root/Sidebar.tsx";
 import {
   createContact,
   deleteContactById,
@@ -15,6 +17,8 @@ import {
   updContact,
   updContactFavorite,
 } from "./actions/createContact.ts";
+import EditContact from "./routes/root/contacts/[id]/edit/EditContact.tsx";
+import Index from "./routes/root/index.tsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +32,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           { index: true, element: <Index /> },
+          { path: "/contacts", element: <Navigate to="/" /> },
           {
             path: "contacts/:contactId",
             element: <Contact />,

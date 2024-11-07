@@ -6,18 +6,10 @@ import {
   useNavigation,
   useSubmit,
 } from "react-router-dom";
-import { getContacts } from "../contacts";
-import { Contact } from "./contact";
+import { Contact } from "./contacts/[id]/Contact";
 import { useEffect } from "react";
 
-export async function rootLoader({ request }: { request: Request }) {
-  const url = new URL(request.url);
-  const q = url.searchParams.get("q");
-  const contacts = await getContacts(q);
-  return { contacts, q };
-}
-
-export default function Root() {
+export default function Sidebar() {
   const { contacts, q } = useLoaderData() as { contacts: Contact[]; q: string };
   const navigation = useNavigation();
   const submit = useSubmit();
