@@ -1,26 +1,5 @@
-import {
-  Form,
-  Params,
-  redirect,
-  useLoaderData,
-  useNavigate,
-} from "react-router-dom";
-import { updateContact } from "../../../../../contacts";
+import { Form, useLoaderData, useNavigate } from "react-router-dom";
 import { Contact } from "../Contact";
-
-export async function action({
-  request,
-  params,
-}: {
-  request: Request;
-  params: Params<"contactId">;
-}) {
-  const formData = await request.formData();
-  const updates = Object.fromEntries(formData);
-  if (!params.contactId) throw new Error("no contactId");
-  await updateContact(params.contactId, updates);
-  return redirect(`/contacts/${params.contactId}`);
-}
 
 export default function EditContact() {
   const { contact } = useLoaderData() as { contact: Contact };

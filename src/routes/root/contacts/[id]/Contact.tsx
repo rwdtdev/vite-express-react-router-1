@@ -1,5 +1,4 @@
-import { Form, Params, useFetcher, useLoaderData } from "react-router-dom";
-import { getContact, updateContact } from "../../../../contacts";
+import { Form, useFetcher, useLoaderData } from "react-router-dom";
 
 export type Contact = {
   id: string;
@@ -11,35 +10,6 @@ export type Contact = {
   favorite?: boolean;
   createdAt?: number;
 };
-
-// type Params = { contactId: string };
-
-export async function loader({ params }: { params: Params<"contactId"> }) {
-  // if (params.contactId) {
-  const contact = await getContact(params.contactId || "");
-  if (!contact) {
-    throw new Response("", {
-      status: 404,
-      statusText: "Not Found",
-    });
-  }
-  return { contact };
-  // } else return null;
-}
-
-export async function action({
-  request,
-  params,
-}: {
-  request: Request;
-  params: Params<"contactId">;
-}) {
-  if (!params.contactId) throw new Error("no params.contactId");
-  const formData = await request.formData();
-  return updateContact(params.contactId, {
-    favorite: formData.get("favorite") === "true",
-  });
-}
 
 export default function Contact() {
   const { contact } = useLoaderData() as { contact: Contact };
