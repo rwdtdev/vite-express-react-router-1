@@ -6,7 +6,7 @@ import {
   useNavigation,
   useSubmit,
 } from "react-router-dom";
-import { createContact, getContacts } from "../contacts";
+import { getContacts } from "../contacts";
 import { Contact } from "./contact";
 import { useEffect } from "react";
 
@@ -15,11 +15,6 @@ export async function rootLoader({ request }: { request: Request }) {
   const q = url.searchParams.get("q");
   const contacts = await getContacts(q);
   return { contacts, q };
-}
-
-export async function rootAction() {
-  const contact = await createContact();
-  return { contact };
 }
 
 export default function Root() {

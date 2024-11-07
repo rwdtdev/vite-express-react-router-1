@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Contact" ALTER COLUMN "createdAt" SET DATA TYPE BIGINT;
