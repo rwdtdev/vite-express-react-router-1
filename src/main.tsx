@@ -18,7 +18,7 @@ import {
   updContactFavorite,
 } from "./actions/createContact.ts";
 import EditContact from "./routes/root/contacts/[id]/edit/EditContact.tsx";
-import Index from "./routes/root/index.tsx";
+import Index from "./routes/root/Index.tsx";
 
 const router = createBrowserRouter([
   {
